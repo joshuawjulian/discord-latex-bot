@@ -1,0 +1,14 @@
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1",
+    "@types/mathjax": "npm:@types/mathjax@^0.0.40",
+    "discord.js": "npm:discord.js@^14.18.0",
+    "mathjax": "npm:mathjax@^3.2.2",
+    "mathjax-full": "npm:mathjax-full@^3.2.2",
+    "node-latex": "npm:node-latex@^3.1.0",
+    "sharp": "npm:sharp@^0.33.5"
+  }
+}
