@@ -1,5 +1,5 @@
 const DISCORD_TOKEN = Deno.env.get('DISCORD_TOKEN');
-const DISCORD_CLIENT_ID = Deno.env.get('DISCORD_CLIENT_ID');
+console.log('TOKEN', DISCORD_TOKEN);
 
 import {
 	AttachmentBuilder,
