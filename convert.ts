@@ -24,9 +24,7 @@ export function get_mathjax_svg(math: string): string {
 	return adaptor.innerHTML(node);
 }
 
-export async function latexStringToPngBuffer(
-	latexString: string,
-): Promise<Buffer> {
+export function latexStringToPngBuffer(latexString: string): Promise<Buffer> {
 	const svg = get_mathjax_svg(latexString);
 	return sharp(new TextEncoder().encode(svg), { density: 250 })
 		.png()
