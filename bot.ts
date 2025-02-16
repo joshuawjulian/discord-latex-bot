@@ -93,4 +93,9 @@ client.once(Events.ClientReady, (readyClient) => {
 	});
 });
 // Log in to Discord with your client's token
-client.login(DISCORD_TOKEN);
+try {
+	client.login(DISCORD_TOKEN);
+} catch (error) {
+	console.error(`Failed to login with token: ${DISCORD_TOKEN}`);
+	console.error(error);
+}
