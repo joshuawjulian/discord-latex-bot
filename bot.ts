@@ -1,5 +1,7 @@
-const DISCORD_TOKEN = Deno.env.get('DISCORD_TOKEN');
+let DISCORD_TOKEN = Deno.env.get('DISCORD_TOKEN');
 console.log('TOKEN', DISCORD_TOKEN);
+if (DISCORD_TOKEN?.at(0) === '"') DISCORD_TOKEN = DISCORD_TOKEN.slice(1);
+if (DISCORD_TOKEN?.at(-1) === '"') DISCORD_TOKEN = DISCORD_TOKEN.slice(0, -1);
 
 import {
 	AttachmentBuilder,
