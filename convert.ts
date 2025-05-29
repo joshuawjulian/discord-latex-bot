@@ -21,6 +21,7 @@ const mathjax_options = {
 
 export function get_mathjax_svg(math: string): string {
 	const node = mathjax_document.convert(math, mathjax_options);
+	console.log(node);
 	return adaptor.innerHTML(node);
 }
 
@@ -29,4 +30,16 @@ export function latexStringToPngBuffer(latexString: string): Promise<Buffer> {
 	return sharp(new TextEncoder().encode(svg), { density: 250 })
 		.png()
 		.toBuffer();
+}
+
+export function extractLatex(content: string | null): string | null {
+	if (content === null) return null;
+	// Match $$...$$ or $...$
+	const latexRegex = /\$\$(.*?)\$\$|\$(.*?)\$/gs;
+	const matches = [...content.matchAll(latexRegex)];
+
+	if (matches.length === 0) return null;
+
+	// !TODO: Match multiple
+	return matches[0][1] || matches[0][2];
 }
